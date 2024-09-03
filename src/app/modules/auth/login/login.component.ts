@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ButtonTypeE } from 'src/app/shared/enums/button-type.enum';
 import { UserLoginI } from 'src/app/shared/interfaces/user-login.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -13,42 +14,49 @@ import { ToastService } from 'src/app/shared/services/toast.service';
 export class LoginComponent {
   loginForm!: FormGroup;
   ButtonTypeE = ButtonTypeE;
-  isSubmitted=false;
-  isLoading=false;
-  constructor(private fb:FormBuilder,private authService:AuthService,private toastService:ToastService) { 
+  isSubmitted = false;
+  isLoading = false;
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private toastService: ToastService,
+    private router: Router
+
+  ) {
   }
 
   ngOnInit(): void {
-   
+
     this.loginForm = this.fb.group({
-      field: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required]],
+      field: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
       type: ['admin'],
     })
-    
-  }
-  
-  onLogIn(){
 
-    this.isSubmitted=true;
-    if(this.loginForm.invalid) return;
-    this.isLoading=true;
+  }
+
+  onLogIn() {
+
+    this.isSubmitted = true;
+    if (this.loginForm.invalid) return;
+    this.isLoading = true;
     this.authService.adminLogin(this.loginForm.value as UserLoginI).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         console.log(res);
-        this.isLoading=false;
+        this.isLoading = false;
+
         if (res.status) {
-          
-          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('token', JSON.stringify(res.data.token));
+          this.router.navigateByUrl('/home')
         }
-      },error:(err)=>{
-        console.log(err);
+      }, error: (err) => {
+       
         if (err.error.message) {
           this.toastService.showErrorToast(err.error.message);
         }
-        this.isLoading=false;
+        this.isLoading = false;
       }
     })
-    
+
   }
 }
