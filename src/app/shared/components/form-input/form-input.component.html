@@ -1,0 +1,35 @@
+<div class="input_row">
+    <label class="input-label" [for]="controlName">{{ inputLabel }}</label>
+
+
+    <input *ngIf="inputType != 'password'" [type]="inputType" pInputText [formControl]="control" [id]="controlName"
+        [ngClass]="{ 'input_invalid': control.errors && isSubmitted && !isLoading }" class="w-100"/>
+
+    <p-password *ngIf="inputType == 'password'" [toggleMask]="true" [feedback]="false" class="w-100 "
+         [formControl]="control" [id]="controlName" id="controlName"
+        [ngClass]="{ 'input_invalid': control.errors && isSubmitted && !isLoading }" />
+
+
+        <!-- validation errors -->
+    <div *ngIf="control.errors && isSubmitted && !isLoading">
+
+        <small class="text-danger" *ngIf="control.errors['required']">
+            <span>{{ inputLabel }} is required</span>
+        </small>
+
+
+        <small class="text-danger" *ngIf="control.errors['email']">
+            <span>Enter valid email</span>
+        </small>
+
+        <!-- 
+        <span *ngIf="control.errors['server']" class="p-error">{{ control.errors['server'] }}</span>
+        <span *ngIf="control.errors['notMatch']" class="p-error"><span >The password confirmation does not match.</span></span>
+        <span *ngIf="control.errors['maxlength']" class="p-error"><span >The max length is {{ control.errors['maxlength'].requiredLength }}</span></span>
+        <span *ngIf="control.errors['minlength']" class="p-error"><span >The min length is {{ control.errors['minlength'].requiredLength }}</span></span>
+        -->
+    </div>
+
+
+
+</div>

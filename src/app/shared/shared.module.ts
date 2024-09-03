@@ -2,18 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 
-import {ButtonModule} from 'primeng/button'
+import {ButtonModule} from 'primeng/button';
+import { FormInputComponent } from './components/form-input/form-input.component'
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 let components=[
-  ButtonComponent
+  ButtonComponent,
+  FormInputComponent
 ]
 
 @NgModule({
   declarations: [
-    ...components
+    ...components,
+    
   ],
   imports: [
     CommonModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PasswordModule
   ],
   exports: [
     ...components
