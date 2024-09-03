@@ -15,7 +15,11 @@ export class AuthService {
   adminLogin(body:UserLoginI) {
     return this.http.post( this.API_URL + '/auth/admin-login',body);
   }
+
   storeAdminToken(){
 
+  }
+  isLoggedIn(){
+    return JSON.parse(localStorage.getItem('token') as string) !== null;
   }
 }
