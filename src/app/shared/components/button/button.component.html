@@ -1,0 +1,16 @@
+<button
+  pButton
+  pRipple
+  [type]="btnType"
+  [class]="'cus_btn' + ' ' + classes"
+  [ngClass]="styleType"
+  (click)="emitClickEvent()"
+  [loading]="isLoading"
+  [disabled]="disabled"
+  [icon]="primeIcon"
+>
+<img *ngIf="!!icon" [src]="icon" alt="" class="btn_icon"/>
+
+  <span *ngIf="label" class="btn_label">{{ label }}</span>
+  
+</button>
