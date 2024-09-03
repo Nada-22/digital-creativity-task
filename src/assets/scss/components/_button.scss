@@ -52,6 +52,10 @@
     @include disabledClass($outLine :false)
 
     }
+    .p-icon {
+      width: auto;
+      height: auto;
+    }
   }
 
   &.primOutlined {

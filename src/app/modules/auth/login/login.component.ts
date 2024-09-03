@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ButtonTypeE } from 'src/app/shared/enums/button-type.enum';
+import { UserLoginI } from 'src/app/shared/interfaces/user-login.interface';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,7 @@ export class LoginComponent {
   ButtonTypeE = ButtonTypeE;
   isSubmitted=false;
   isLoading=false;
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,private authService:AuthService,private toastService:ToastService) { 
   }
 
   ngOnInit(): void {
@@ -20,6 +23,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       field: ['',[Validators.required, Validators.email]],
       password: ['',[Validators.required]],
+      type: ['admin'],
     })
     
   }
@@ -27,7 +31,24 @@ export class LoginComponent {
   onLogIn(){
 
     this.isSubmitted=true;
-    console.log(this.loginForm.value);
+    if(this.loginForm.invalid) return;
+    this.isLoading=true;
+    this.authService.adminLogin(this.loginForm.value as UserLoginI).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        this.isLoading=false;
+        if (res.status) {
+          
+          localStorage.setItem('token', res.data.token);
+        }
+      },error:(err)=>{
+        console.log(err);
+        if (err.error.message) {
+          this.toastService.showErrorToast(err.error.message);
+        }
+        this.isLoading=false;
+      }
+    })
     
   }
 }
