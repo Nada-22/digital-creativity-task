@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ButtonTypeE } from 'src/app/shared/enums/button-type.enum';
-import { UserLoginI } from 'src/app/shared/interfaces/user-login.interface';
+import { UserLoginI } from 'src/app/shared/interfaces/user.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
 
@@ -33,6 +33,13 @@ export class LoginComponent {
       type: ['admin'],
     })
 
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/home']);
+      
+      setTimeout(() => {
+        this.toastService.showErrorToast('you already logged in');
+      }, 500);
+    }
   }
 
   onLogIn() {
@@ -47,11 +54,11 @@ export class LoginComponent {
 
         if (res.status) {
           localStorage.setItem('token', JSON.stringify(res.data.token));
-          this.router.navigateByUrl('/home')
+          this.router.navigateByUrl('/home');
         }
       }, error: (err) => {
        
-        
+
         if (err.error.message) {
           this.toastService.showErrorToast(err.error.message);
         }
