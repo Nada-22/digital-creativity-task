@@ -1,0 +1,26 @@
+input{
+
+    width: 100%;
+    font-size: initial;
+    &.p-inputtext {
+        border: 1px solid $elementBorderColor;
+        border-radius: $elementRadius;
+        padding: $elementPadding;
+        height: $elementHight;
+        &:focus ,
+        &:hover{
+            border: 1px solid var(--primary-color);
+        }
+        &.input_invalid{
+        border-color: var(--danger-color) !important;
+
+        }
+    }
+}
+
+.input_invalid{
+
+    .p-inputtext{
+        border-color: var(--danger-color) !important;
+    }
+}

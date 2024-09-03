@@ -1,0 +1,43 @@
+//couldn't put a parent because of the p-multiselect has the checkbox without this parent
+
+
+.p-checkbox {
+
+    width: 18px;
+    height: 18px;
+
+    &-box {
+
+        box-shadow: none;
+        width: 18px;
+        height: 18px;
+
+        &:hover {
+            border-color: var(--primary-color);
+
+        }
+
+        &.p-highlight {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+        }
+
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &-label {
+
+        cursor: pointer;
+    }
+}
+
+.manager-detail-checkbox {
+    label.p-disabled {
+        opacity: 1 !important;
+        cursor: not-allowed !important;
+    }
+}
+

@@ -1,0 +1,43 @@
+.p-breadcrumb {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    // margin: 1rem 0px;
+
+    &-list {
+        li {
+            .p-menuitem-link {
+                font-size: 14px !important;
+
+                &:focus {
+                    box-shadow: none !important;
+                }
+
+                .p-menuitem-text {
+                    color: #707070 !important;
+                }
+
+                &.active {
+                    .p-menuitem-text {
+                        color: var(--primary-color) !important;
+                    }
+
+                }
+            }
+
+            .p-icon-wrapper {
+
+                svg {
+                    width: 14px !important;
+                }
+            }
+
+        }
+    }
+
+    &-chevron {
+        color: #aaadb5 !important;
+        font-size: .8rem !important;
+
+    }
+}

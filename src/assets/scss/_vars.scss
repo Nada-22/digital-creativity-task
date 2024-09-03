@@ -1,0 +1,42 @@
+// Directions
+$ltr: "[dire='ltr']";
+$rtl: "[dire='rtl']";
+
+// Colors
+:root {
+  --primary-color: #352E9D;
+  --secondary-color: #666666;
+  --dark-color: #0d0d0d;
+  --success-color: #8DC45D;
+  --success-light-color: #e5fff6;
+  --warning-color: #F47B22;
+  --warning-light-color: #fef1e7;
+  --info-color: #3DC5E7;
+  --info-light-color: #e7f2fe;
+  --danger-color: #ea3929;
+  --danger-light-color: #fdeae8;
+  --upload-file-color: #f8fafc;
+}
+
+$elementHight: 40px;
+$elementPadding: 9px;
+$elementRadius: 8px;
+$elementBorderColor: #cccccc;
+
+//toast colors
+$bgSuccessToast: #e5fff6;
+$bgErrorToast: #fef2f2;
+$bgWarningToast: #fff9e3;
+
+$successToastIcon: #008f5d;
+$errorToastIcon: #c8383d;
+$warningToastIcon: #f9a825;
+
+$successToastDetailS: #008f5d;
+$errorToastDetailS: #b91c1c;
+
+$successToastCloseIcon: #64748b;
+$errorToastCloseIcon: #1e293b;
+
+$successToastBorder: #008f5d;
+$errorToastBorder: #b91c1c;

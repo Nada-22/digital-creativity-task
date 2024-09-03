@@ -1,0 +1,24 @@
+// Gap
+@for $i from 4 through 40 {
+  $gap: $i + 2;
+
+  .gap-#{$gap} {
+    gap: #{$gap}px;
+  }
+}
+
+// Font Size
+@for $i from 10 through 24 {
+  $fs: $i + 2;
+
+  .fs-#{$fs} {
+    font-size: #{$fs}px;
+  }
+}
+
+// Margin Bottom
+@for $i from 1 through 50 {
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}

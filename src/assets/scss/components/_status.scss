@@ -1,0 +1,19 @@
+.status_badge {
+  padding: 6px 24px;
+  @include borderRadius(8px);
+  @include font(14px, 500, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  &.green {
+    background-color: #caf1d8;
+    color: #188a42;
+  }
+
+  &.danger {
+    background-color: #fae3e1;
+    color: #ea3929;
+  }
+}

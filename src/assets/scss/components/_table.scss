@@ -1,0 +1,129 @@
+.p-datatable {
+
+    margin-bottom: 10px;
+
+    &-header {
+        background: transparent;
+        border-top: 0;
+
+        .table-caption-content {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .left-side {
+
+                display: flex;
+                justify-content: start;
+                gap: 8px;
+
+                .caption-search-input {
+                    width: 22rem;
+                }
+            }
+
+            .right-side {
+                display: flex;
+                justify-content: end;
+                text-align: end;
+                gap: 8px;
+            }
+        }
+    }
+
+    &-thead {
+
+        padding: 15px;
+
+        .p-column-filter-buttonbar {
+            display: none;
+        }
+
+        th {
+            background-color: #F5F7FA;
+            padding: 15px;
+            text-transform: capitalize;
+
+
+        }
+    }
+
+    &-tbody {
+        tr {
+            &:hover {
+
+                cursor: pointer;
+
+                &:not(.emptyData) {
+                    background-color: #F5F5F5;
+                }
+            }
+
+            td {
+
+                padding: 15px;
+            }
+        }
+    }
+
+}
+
+.table_action_btns {
+
+
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    gap: 12px;
+
+    button {
+
+        color: #292d32;
+        padding: 6px !important;
+        @include borderRadius(4px);
+
+        img {
+            width: 19px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        &.copy {
+            &:hover {
+                background-color: var(--info-light-color);
+                color: var(--primary-color);
+            }
+        }
+
+        &.view {
+            &:hover {
+                background-color: var(--info-light-color);
+                color: var(--primary-color);
+            }
+        }
+
+        &.update {
+
+            &:hover {
+                background-color: var(--info-light-color);
+                color: var(--primary-color);
+            }
+        }
+
+        &.delete {
+
+            &:hover {
+                background-color: var(--danger-light-color);
+                color: var(--danger-color);
+            }
+        }
+    }
+
+}
+
+//////need to Discussing with Radwaaaaaaaaaaaaaaa
+
+.p-column-filter-buttonbar {
+    display: none;
+}

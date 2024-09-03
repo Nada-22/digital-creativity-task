@@ -1,0 +1,40 @@
+.p-paginator {
+
+    button {
+  
+      min-width: 2rem;
+      height: 2rem;
+    }
+  
+    &-pages {
+  
+      .p-paginator-page {
+  
+  
+          border-radius: 8px !important;
+          -webkit-border-radius: 8px !important;
+          -moz-border-radius: 8px !important;
+          -ms-border-radius: 8px !important;
+          -o-border-radius: 8px !important;
+        &.p-highlight {
+          background-color: #006b99 !important;
+          color: #ffff !important;
+        }
+  
+      }
+    }
+  
+    &-next,
+    &-prev,
+    &-last,
+    &-first {
+      border: 1px solid #f1f1f1 !important;
+      border-radius: 8px !important;
+      color: #2e3138 !important;
+      -webkit-border-radius: 8px !important;
+      -moz-border-radius: 8px !important;
+      -ms-border-radius: 8px !important;
+      -o-border-radius: 8px !important;
+      margin: 0 3px;
+    }
+  }

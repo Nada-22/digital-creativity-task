@@ -1,0 +1,143 @@
+
+@mixin disabledClass($outLine: false){
+  color: var(--secondary-color);
+  opacity: 1;
+
+  .btn_label {
+    color: var(--secondary-color);
+  }
+  @if$outLine{
+    border-color: var(--secondary-color);
+ 
+  }
+   @else {
+
+    background-color: #e6e6e6;
+  }
+}
+.cus_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include borderRadius($elementRadius);
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  height: $elementHight;
+
+  .json_icon{
+    height: 26px;
+
+  }
+  .btn_icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
+
+  .btn_label {
+    @include font(14px, 500, transparent);
+  }
+
+  &.primBtn {
+    background-color: var(--primary-color);
+    color: #fff;
+
+    .btn_label {
+      color: #fff;
+    }
+    &:disabled{
+   
+    @include disabledClass($outLine :false)
+
+    }
+  }
+
+  &.primOutlined {
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+
+    .btn_label {
+      color: var(--primary-color);
+    }
+    &:disabled{
+     
+      @include disabledClass($outLine :true);
+  
+      }
+  }
+
+  &.primLight {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+
+    .btn_label {
+      color: var(--primary-color);
+    }
+    &:disabled{
+     
+      @include disabledClass($outLine :false);
+  
+    }
+  }
+
+  &.dangLight {
+    background-color: #fdeae8;
+    color: var(--danger-color);
+
+    .btn_label {
+      color: var(--danger-color);
+    }
+    &:disabled{
+     
+      @include disabledClass($outLine :false);
+  
+    }
+  }
+
+  &.secOutlined {
+    background-color: #fff;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+
+    .btn_label {
+      color: var(--secondary-color);
+    }
+    &:disabled{
+     
+      @include disabledClass($outLine :true);
+  
+    }
+  }
+
+  &.icon {
+    padding: 4px;
+    background-color: transparent;
+  }
+
+  // &:disabled {
+  //   // background-color: #e6e6e6;
+  //   color: var(--secondary-color);
+  //   opacity: 1;
+
+  //   .btn_label {
+  //     color: var(--secondary-color);
+  //   }
+
+  // }
+}
+
+.table_expand_btn{
+  color: #292d32;
+  padding: 2px !important;
+  background-color: #f5f7fa;
+  width: 2.4rem;
+  height: 2.4rem;
+  @include borderRadius(50%);
+  .p-button-icon{
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+}

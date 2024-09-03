@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+// PimeNG Icons
+@import "primeicons/primeicons.css";
+
+// Import Partials SCSS Files
+@import "assets/scss/vars";
+@import "assets/scss/mixins";
+@import "assets/scss/generate";
+@import "assets/scss/base";
+@import "assets/scss/colors";
+@import "assets/scss/utilities";
+@import "assets/scss/general_classes";
+
+// Import Partials SCSS Files [Components]
+@import "assets/scss/components/button";
+
+@import "assets/scss/components/toast";
+
+@import "assets/scss/components/checkbox";
+@import "assets/scss/components/dropdown";
+@import "assets/scss/components/paginator";
+@import "assets/scss/components/table";
+@import "assets/scss/components/input";
+

@@ -1,0 +1,97 @@
+@import '../vars.scss';
+
+@mixin tostBody($background) {
+    background-color: $background !important;
+    font-size: 14px;
+    align-items: center !important;
+    font-weight: 600;
+}
+
+.p-toast {
+
+    .p-toast-message {
+    
+        &-success {
+            border: 1px solid $successToastBorder;
+            border-radius: 8px;
+    
+            .success_toast {
+    
+                @include tostBody($bgSuccessToast);
+    
+    
+                .p-toast-message-icon {
+                    font-size: 20px !important;
+                    color: $successToastIcon;
+                    width: 20px;
+                    height: 20px;
+                }
+    
+                .p-toast-message-text {
+                    .p-toast-detail {
+                        color: $successToastDetailS !important;
+                        font-size: 14px;
+                        margin-top: 0px;
+                    }
+    
+                }
+    
+                .p-toast-icon-close {
+                    width: 16px !important;
+                    height: 16px !important;
+                    color: $successToastCloseIcon;
+    
+                    &:hover {
+                        background-color: transparent;
+                        color: $successToastDetailS;
+                    }
+                }
+    
+            }
+    
+    
+        }
+    
+        &-error {
+            border: 1px solid $errorToastBorder;
+            border-radius: 8px;
+            .error_toast {
+    
+                @include tostBody($bgErrorToast);
+    
+                .p-toast-message-icon {
+                    font-size: 14px !important;
+                    color: $errorToastIcon;
+                    display: grid;
+    
+                    .p-icon:not(.p-toast-icon-close-icon) {
+                        width: 1.4rem;
+                        height: 1.4rem;
+                    }
+                }
+    
+                .p-toast-message-text {
+                    .p-toast-detail {
+                        color: $errorToastDetailS !important;
+                        font-size: 14px;
+                        margin-top: 0px;
+                    }
+    
+                }
+    
+                .p-toast-icon-close {
+                    width: 16px !important;
+                    height: 16px !important;
+                    color: $errorToastCloseIcon;
+    
+                    &:hover {
+                        background-color: transparent;
+                        color: $errorToastDetailS;
+                    }
+                }
+    
+            }
+    
+        }
+    }
+}
