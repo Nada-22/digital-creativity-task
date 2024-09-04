@@ -54,6 +54,11 @@ export class LoginComponent {
 
         if (res.status) {
           localStorage.setItem('token', JSON.stringify(res.data.token));
+          let data = {
+            name: res.data.name,
+            image: res.data.image
+          }
+          localStorage.setItem('data', JSON.stringify(data));
           this.router.navigateByUrl('/home');
         }
       }, error: (err) => {

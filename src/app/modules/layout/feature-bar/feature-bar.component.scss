@@ -1,0 +1,28 @@
+@import '../../../../assets/scss/mixins';
+
+.feature_bar {
+  padding: 10px;
+  border-bottom: 1px solid #004b6633;
+  box-shadow: 0px -1px 1px 0px #0000000d inset;
+
+  .feature_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 26px;
+
+    .feature_link {
+      flex-shrink: 0;
+      padding: 4px;
+      background-color: transparent;
+      @include font(12px, 400, #222222);
+      border: 0;
+      @include borderRadius(8px);
+
+      &.active {
+        background-color: #f1f4f9;
+        @include font(12px, 500, var(--primary-color));
+      }
+    }
+  }
+}

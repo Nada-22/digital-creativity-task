@@ -1,0 +1,16 @@
+<div class="feature_bar">
+      <div class="feature_links">  
+        <button *ngFor="let item of items"
+          pButton
+          pRipple
+          class="feature_link"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+        >
+          {{ item.title }}
+        </button>
+        
+      </div>
+
+  </div>
+  
