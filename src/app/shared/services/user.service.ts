@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
 
-  getAllUsers() {
+  getAllUsers():Observable<any> {
     //http query params
     let params = new HttpParams().set('return_all', 1);
     return this.http.get(this.API_URL + `/users`, { params: params });

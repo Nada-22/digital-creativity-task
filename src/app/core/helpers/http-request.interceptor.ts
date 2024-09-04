@@ -6,11 +6,12 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private authService:AuthService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const Request = request.clone({
@@ -23,9 +24,16 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         'Device-UDID': '1234',
         'Device-Push-Token': '123456',
         'Device-Type': 'web',
+        'Authorization':'Bearer  '+ this.authService.getToken()
    
       },
     });
+    
+    // if (this.authService.isLoggedIn()) {
+    //   Request.headers.set('Authorization','Bearer  '+this.authService.getToken());
+    // }
+    console.log(Request);
+    
     return next.handle(Request);
   }
 }

@@ -10,7 +10,7 @@
 
     
     <div class="divHolder">
-        <p-table #dt1 [value]="users" dataKey="id" [rows]="10">
+        <p-table #dt1 [value]="(users$| async) ||[] " dataKey="id" [rows]="10">
             <ng-template pTemplate="caption">
                 <div class="table-caption-content">
                     <div class="left-side">
@@ -37,7 +37,7 @@
                     <td>{{ user.phone }}</td>
                     <td>{{ user.active }}</td>
                     <td>{{ user.date_of_birth }}</td>
-                    <td>{{ user.country }}</td>
+                    <td>{{ user.country.name_en }}</td>
 
                     <td>
                         <div class="table_action_btns">

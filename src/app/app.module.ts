@@ -8,6 +8,11 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './core/helpers/http-request.interceptor';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UserEffects } from './core/store/user/user.effectives';
+import { userReducer } from './core/store/user/user.producer';
 
 
 @NgModule({
@@ -20,7 +25,10 @@ import { HttpRequestInterceptor } from './core/helpers/http-request.interceptor'
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    StoreModule.forRoot({ users: userReducer }),
+    EffectsModule.forRoot([UserEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [MessageService,
     {
