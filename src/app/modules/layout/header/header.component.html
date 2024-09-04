@@ -1,13 +1,12 @@
 <header class="header">
     <div class="header_content">
-
-        <div class="account-info" (click)="menu.toggle($event)" *ngIf="getUserData()">
-            <p-avatar [image]="getUserData().image" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
-            <span class="fw-bold">{{getUserData().name}}</span>
-        </div>
-
         <div>
             <img src="../../../../assets/img/logo.jpeg" width="50" alt="" />
+        </div>
+
+        <div class="account-info" (click)="menu.toggle($event)" *ngIf="getUserData()">
+            <span class="fw-bold">{{getUserData().name}}</span>
+            <p-avatar [image]="getUserData().image" styleClass="mr-2" size="normal" shape="circle"></p-avatar>
         </div>
 
     </div>

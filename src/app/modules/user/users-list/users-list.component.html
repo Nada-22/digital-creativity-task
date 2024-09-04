@@ -1,1 +1,62 @@
-<p>users-list works!</p>
+<div class="container">
+    <div class="page-header mt-3">
+        <div class="page-title">
+            <h3>Users List</h3>
+        </div>
+        <div class="page-actions-btns">
+            <app-button label="Add User" [styleType]="ButtonType.Primary" classes="px-4" primeIcon="pi pi-plus" />
+        </div>
+    </div>
+
+    
+    <div class="divHolder">
+        <p-table #dt1 [value]="users" dataKey="id" [rows]="10">
+            <ng-template pTemplate="caption">
+                <div class="table-caption-content">
+                    <div class="left-side">
+                        <input class="caption-search-input" pInputText type="text" placeholder="Search" />
+                    </div>
+
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Date of Birth</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.active }}</td>
+                    <td>{{ user.date_of_birth }}</td>
+                    <td>{{ user.country }}</td>
+
+                    <td>
+                        <div class="table_action_btns">
+                            <!-- <button pButton pRipple [text]="true" class="view" (click)="ShowCategoryDetailsModal()">
+                            </button>
+
+                            <button pButton pRipple [text]="true" class="update" routerLink="update/1">
+                            </button> -->
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7" class="text-center">No users found</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>
