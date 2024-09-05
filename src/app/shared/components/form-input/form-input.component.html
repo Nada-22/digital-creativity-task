@@ -23,11 +23,19 @@
         </small>
 
         <!-- 
-        <span *ngIf="control.errors['server']" class="p-error">{{ control.errors['server'] }}</span>
-        <span *ngIf="control.errors['notMatch']" class="p-error"><span >The password confirmation does not match.</span></span>
-        <span *ngIf="control.errors['maxlength']" class="p-error"><span >The max length is {{ control.errors['maxlength'].requiredLength }}</span></span>
-        <span *ngIf="control.errors['minlength']" class="p-error"><span >The min length is {{ control.errors['minlength'].requiredLength }}</span></span>
-        -->
+            <span *ngIf="control.errors['notMatch']" class="p-error"><span >The password confirmation does not match.</span></span>
+            -->
+            <span *ngIf="control.errors['serverError']" class="p-error">{{ control.errors['serverError'] }}</span>
+        <small *ngIf="control.errors['invalidPhone']" class="text-danger">
+            <span>The phone number must begin with 50</span>
+            <br>
+        </small>
+        <small *ngIf="control.errors['maxlength']" class="text-danger">
+            <span >The max length is {{ control.errors['maxlength'].requiredLength }}</span>
+        </small>
+        <small *ngIf="control.errors['minlength']" class="text-danger">
+            <span >The min length is {{ control.errors['minlength'].requiredLength }}</span>
+        </small>
     </div>
 
 

@@ -4,7 +4,7 @@ import * as UserActions from './user.actions';
 
 export interface UserState {
   users: UserI[];
-  error: string | null;
+  error: any | null;
 }
 
 export const initialState: UserState = {
@@ -20,6 +20,10 @@ export const userReducer = createReducer(
   on(UserActions.addUserSuccess, (state, { user }) => ({
     ...state,
     users: [...state.users, user],
+  })),
+  on(UserActions.addUserFailure, (state, { error }) => ({
+    ...state,
+    error: error,
   })),
 
   on(UserActions.updateUserSuccess, (state, { user }) => ({

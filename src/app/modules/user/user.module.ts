@@ -7,12 +7,10 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { SharedComponentsModule } from 'src/app/shared/shared.module';
 import {TableModule} from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { userReducer } from 'src/app/core/store/user/user.producer';
-import { UserEffects } from 'src/app/core/store/user/user.effectives';
-
+import { SidebarModule } from 'primeng/sidebar';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     UsersListComponent,
@@ -24,6 +22,11 @@ import { UserEffects } from 'src/app/core/store/user/user.effectives';
     SharedComponentsModule,
     TableModule,
     InputTextModule,
+    SidebarModule,
+    DropdownModule,
+    InputSwitchModule,
+    FormsModule,
+    ReactiveFormsModule
  
   ]
 })

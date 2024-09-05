@@ -25,11 +25,11 @@ export class UserService {
   }
 
   createUser(body: UserI): Observable<any> {
-    return this.http.post(this.API_URL + `/users`, body);
+    return this.http.post(this.API_URL + `/users/create`, body);
   }
 
   updateUser(id: number, body: UserI): Observable<any> {
-    return this.http.put(this.API_URL + `/users/${id}`, body);
+    return this.http.post(this.API_URL + `/users/${id}/edit`, body);
   }
   toggleUserActivation(id: number): Observable<any> {
     return this.http.get(this.API_URL + `/users/${id}/activation`);

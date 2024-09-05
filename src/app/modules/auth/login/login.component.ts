@@ -22,8 +22,7 @@ export class LoginComponent {
     private toastService: ToastService,
     private router: Router
 
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
 

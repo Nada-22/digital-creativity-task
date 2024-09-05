@@ -14,8 +14,10 @@ import * as UserActions from '../../../core/store/user/user.actions';
 export class UsersListComponent {
   ButtonType=ButtonTypeE;
   users!:UserI[];
+  showUserManagement=false;
 
   users$: Observable<UserI[]> = this.store.select(selectAllUsers);
+  selectedUser!:UserI;
 
   constructor(private store: Store) {}
 
@@ -25,11 +27,6 @@ export class UsersListComponent {
   }
 
 
-
-  // addUser(user: UserI) {
-  //   this.store.dispatch(UserActions.addUser({ user }));
-  // }
-
   // updateUser(user: UserI) {
   //   this.store.dispatch(UserActions.updateUser({ user }));
   // }
@@ -37,4 +34,9 @@ export class UsersListComponent {
   // deleteUser(id: number) {
   //   this.store.dispatch(UserActions.deleteUser({ id }));
   // }
+  openUserManagement(user:UserI | 0){
+    this.showUserManagement=!this.showUserManagement;
+    this.selectedUser=user as UserI;
+
+  }
 }

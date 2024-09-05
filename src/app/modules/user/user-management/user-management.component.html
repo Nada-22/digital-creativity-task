@@ -1,1 +1,111 @@
-<p>user-management works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <h4>
+        {{user? 'Update User' :'Add User'}}
+    </h4>
+    <div class="row">
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('name')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Name'"></app-form-input>
+    
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('father_name')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Father Name'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('grandfather_name')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Grand Father Name'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('family_branch_name')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Family Branch Name'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+    
+            <div class="input_row">
+              <label>Gender</label>
+                <p-dropdown [options]="UserGenderE|keyvalue" formControlName="gender" optionLabel="value" optionValue="value"
+                    placeholder="Select user gender"></p-dropdown>
+            </div>
+    
+        </div>
+    
+        <div class="col-lg-6">
+    
+            <div class="input_row">
+              <label>Country</label>
+                <p-dropdown [options]="countries" formControlName="country_id" optionLabel="name_en" optionValue="id"
+                    placeholder="Select user country" (onChange)="onSelectCountry($event)"></p-dropdown>
+            </div>
+    
+        </div>
+    
+        
+        
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('phone')" [inputType]="'number'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Phone'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('email')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Email'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('password')" [inputType]="'password'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Password'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('password_confirmation')" [inputType]="'password'"
+                [isLoading]="isLoading" [isSubmitted]="isSubmitted" [inputLabel]="'Password Confirmation'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('date_of_birth')" [inputType]="'date'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Date of Birth'"></app-form-input>
+        </div>
+    
+        <!-- <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('phone_code')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Phone Code'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('country_code')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Country Code'"></app-form-input>
+        </div> -->
+    
+        <div class="col-lg-6">
+            <app-form-input [control]="userForm.get('tribe')" [inputType]="'text'" [isLoading]="isLoading"
+                [isSubmitted]="isSubmitted" [inputLabel]="'Tribe'"></app-form-input>
+        </div>
+    
+        <div class="col-lg-6">
+            <label for="switch1">Active</label>
+            <p-inputSwitch formControlName="active" inputId="switch1"></p-inputSwitch>
+    
+        </div>
+        <div class="col-lg-6">
+    
+            <label for="is_premium">Premium</label>
+            <p-inputSwitch formControlName="is_premium" inputId="is_premium"></p-inputSwitch>
+    
+        </div>
+    
+        <div class="col-lg-6">
+    
+          <app-button [isLoading]="isLoading" btnType="submit" classes="w-100 mt-4" label="Add User"
+           [styleType]="ButtonTypeE.Primary"></app-button>
+
+        </div>
+    
+    </div>
+</form>
