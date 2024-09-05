@@ -14,8 +14,6 @@ export class LoaderComponent {
 
   constructor(private store: Store<any>) {
     this.isLoading$ = this.store.select(selectIsLoading);
-    this.isLoading$.subscribe(res=>{
-      console.log(res);
-    })
+  
   }
 }

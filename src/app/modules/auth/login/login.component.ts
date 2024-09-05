@@ -48,7 +48,6 @@ export class LoginComponent {
     this.isLoading = true;
     this.authService.adminLogin(this.loginForm.value as UserLoginI).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.isLoading = false;
 
         if (res.status) {

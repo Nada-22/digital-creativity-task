@@ -10,11 +10,13 @@
     </div>
 
     <div class="divHolder">
-        <p-table #dt1 [value]="(users$ | async) || []" dataKey="id" [rows]="10">
+        <p-table #dt1 [value]="(users$ | async) || []" dataKey="id" [rows]="10"
+        [globalFilterFields]="['name','email','phone','country.name_en']">
             <ng-template pTemplate="caption">
                 <div class="table-caption-content">
                     <div class="left-side">
-                        <input class="caption-search-input" pInputText type="text" placeholder="Search" />
+                        <input class="caption-search-input" #asd pInputText type="text" placeholder="Search" 
+                        (input)="dt1.filterGlobal(asd.value , 'contains')"/>
                     </div>
                 </div>
             </ng-template>

@@ -73,7 +73,6 @@ export class UserManagementComponent {
       
     }, 200);
     if (this.user) {
-      console.log(this.user);
       
       this.userForm.patchValue(this.user)
     }
@@ -108,7 +107,6 @@ export class UserManagementComponent {
 
   }
   onSelectCountry(event:any){
-    console.log(event);
     let country = this.countries.find(c=>c.id==event.value);
     
     this.userForm.patchValue({
@@ -122,7 +120,6 @@ export class UserManagementComponent {
     
     this.store.pipe(select(selectUserError)).subscribe({
       next: (error) => {
-        console.log(error);
         if (!!error?.errors) {
           
         let  validationErrors=error.errors as Array<any>;

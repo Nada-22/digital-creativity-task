@@ -32,7 +32,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     // if (this.authService.isLoggedIn()) {
     //   Request.headers.set('Authorization','Bearer  '+this.authService.getToken());
     // }
-    console.log(Request);
     
     return next.handle(Request);
   }
