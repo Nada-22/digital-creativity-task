@@ -7,9 +7,11 @@ import { FormInputComponent } from './components/form-input/form-input.component
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
+import { LoaderComponent } from './components/loader/loader.component';
 let components=[
   ButtonComponent,
-  FormInputComponent
+  FormInputComponent,
+  LoaderComponent,
 ]
 
 @NgModule({

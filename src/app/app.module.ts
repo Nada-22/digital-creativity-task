@@ -1,3 +1,4 @@
+import { loadingReducer } from './core/store/loader/loader.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UserEffects } from './core/store/user/user.effectives';
 import { userReducer } from './core/store/user/user.producer';
+import { SharedComponentsModule } from "./shared/shared.module";
 
 
 @NgModule({
@@ -26,10 +28,11 @@ import { userReducer } from './core/store/user/user.producer';
     AppRoutingModule,
     HttpClientModule,
     ToastModule,
-    StoreModule.forRoot({ users: userReducer }),
+    StoreModule.forRoot({ users: userReducer ,isLoading:loadingReducer}),
     EffectsModule.forRoot([UserEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-  ],
+    SharedComponentsModule,
+],
   providers: [MessageService,
     {
       provide: HTTP_INTERCEPTORS,
