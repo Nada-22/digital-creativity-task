@@ -77,7 +77,13 @@ export class UserManagementComponent {
       this.userForm.patchValue(this.user);
       this.userForm.get('password')?.disable();
       this.userForm.get('password_confirmation')?.disable();
-      
+      let active=this.userForm.get('active')?.value;
+      let is_premium=this.userForm.get('is_premium')?.value;
+       this.userForm.patchValue({
+         active:active==1? true:false,
+         is_premium:is_premium==1?true:false
+       })
+
     }
   }
 
@@ -91,6 +97,12 @@ export class UserManagementComponent {
   onSubmit(){
 
     this.isSubmitted=true;
+   let active=this.userForm.get('active')?.value;
+   let is_premium=this.userForm.get('is_premium')?.value;
+    this.userForm.patchValue({
+      active:active? 1:0,
+      is_premium:is_premium?1:0
+    })
     if (this.userForm.invalid) return;
     if (this.user) {
     this.updateUser();  
