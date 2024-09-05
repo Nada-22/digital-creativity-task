@@ -74,7 +74,10 @@ export class UserManagementComponent {
     }, 200);
     if (this.user) {
       
-      this.userForm.patchValue(this.user)
+      this.userForm.patchValue(this.user);
+      this.userForm.get('password')?.disable();
+      this.userForm.get('password_confirmation')?.disable();
+      
     }
   }
 
